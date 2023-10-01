@@ -1,4 +1,4 @@
-package com.portfybe.model;
+package com.sportfybe.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,17 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
-@Table(name = "Category")
+@Table(name = "Invite")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Category {
+public class Invite {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-
+    @ManyToMany
+    @JoinColumn(name = "member_id")
+    private List<Member> members;
+    @ManyToOne
+    @JoinColumn(name = "match_id")
+    private Match match;
 }

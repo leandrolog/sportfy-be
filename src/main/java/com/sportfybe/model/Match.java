@@ -1,4 +1,4 @@
-package com.portfybe.model;
+package com.sportfybe.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,15 +21,12 @@ public class Match {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @ManyToMany
-    @JoinColumn(name = "user_id")
-    private List<User> users;
+    @JoinColumn(name = "id")
+    private List<Member> members;
     @OneToOne
-    @JoinColumn(name = "adresses_id")
-    private Adress adresses;
+    @JoinColumn(name = "id")
+    private Address adresses;
     @OneToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
-    @OneToOne
-    @JoinColumn(name = "schedule_id")
     private Schedule schedule;
+    private Integer slot;
 }

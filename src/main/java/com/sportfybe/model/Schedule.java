@@ -1,4 +1,4 @@
-package com.portfybe.model;
+package com.sportfybe.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -6,23 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "Invite")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Invite {
+public class Schedule {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @ManyToMany
-    @JoinColumn(name = "user_id")
-    private List<User> users;
-    @ManyToOne
-    @JoinColumn(name = "match_id")
-    private Match match;
+    @OneToOne
+    @JoinColumn(name = "adress_id")
+    private Address address;
+    private Date date;
+
+
 }
