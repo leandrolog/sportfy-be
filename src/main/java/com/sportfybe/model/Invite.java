@@ -21,7 +21,7 @@ public class Invite {
     private Long id;
     @ManyToMany
     @JoinColumn(name = "member_id")
-    private List<Member> members;
+    private List<User> users;
     @ManyToOne
     @JoinColumn(name = "match_id")
     private Match match;

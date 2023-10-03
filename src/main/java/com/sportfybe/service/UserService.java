@@ -1,7 +1,7 @@
 package com.sportfybe.service;
 
-import com.sportfybe.model.Member;
-import com.sportfybe.repository.MemberRepository;
+import com.sportfybe.model.User;
+import com.sportfybe.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -18,25 +18,25 @@ import java.util.Optional;
 public class UserService {
 
     @Autowired
-    private MemberRepository memberRepository;
+    private UserRepository userRepository;
 
 
     @Transactional
-    public Member save(Member product) {
-        return memberRepository.save(product);
+    public User save(User product) {
+        return userRepository.save(product);
     }
 
-    public List<Member> findAll(Sort sort) {
-        return memberRepository.findAll(sort);
+    public List<User> findAll(Sort sort) {
+        return userRepository.findAll(sort);
     }
 
-    public Optional<Member> findById(Long userId) {
-        return memberRepository.findById(userId);
+    public Optional<User> findById(Long userId) {
+        return userRepository.findById(userId);
     }
 
     @Transactional
-    public void delete(Member product) {
-        memberRepository.delete(product);
+    public void delete(User product) {
+        userRepository.delete(product);
     }
     /*
     public boolean existsByUserName(String userName) {

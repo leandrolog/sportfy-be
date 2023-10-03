@@ -22,7 +22,7 @@ public class Match {
     private Long id;
     @ManyToMany
     @JoinColumn(name = "id")
-    private List<Member> members;
+    private List<User> users;
     @OneToOne
     @JoinColumn(name = "id")
     private Address adresses;

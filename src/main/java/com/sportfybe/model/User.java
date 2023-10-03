@@ -15,10 +15,10 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-@Table(name = "member")
+@Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Member  implements UserDetails {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,8 @@ public class Member  implements UserDetails {
     @JoinColumn(name = "match_id")
     private List<Match> matches;
     private String role;
-
+    @Column(nullable = false)
+    private String password;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role));
